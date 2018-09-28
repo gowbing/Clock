@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.czsirius.clock">
+
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.DEVICE_POWER"/>
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+
+    <application
+        android:name="com.miracle.clock.manager.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="Mob-AppKey"
+            android:value="20749b4d60020"/>
+        <meta-data
+            android:name="Mob-AppSecret"
+            android:value="51c83c2ac418c7c42722c1998b59bb35"/>
+
+        <activity
+            android:name="com.miracle.clock.ui.activity.WelcomeActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.MainActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.RemindActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.LoginActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.ForgetPasswordActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.miracle.clock.ui.activity.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.miracle.clock.ui.activity.MenuActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.miracle.clock.ui.activity.ClockReminderActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.CollectsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.miracle.clock.ui.activity.MineActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.miracle.clock.ui.activity.UserInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.miracle.clock.ui.activity.OpControlActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.EventRemindActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.RepeatActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.AudioActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.AddClockActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.AddEventActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.AboutUsActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.HelpActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.NewHelpActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <receiver
+            android:name="com.miracle.clock.service.CustomAlarmReceiver"
+            android:screenOrientation="portrait">
+        </receiver>
+
+        <service android:name="com.miracle.clock.service.AudioPlayService">
+        </service>
+        <service android:name="com.miracle.clock.service.DaemonService">
+        </service>
+        <service
+            android:name="com.miracle.clock.service.GrayService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":gray"/>
+        <service
+            android:name="com.miracle.clock.service.GrayService$GrayInnerService"
+            android:enabled="true"
+            android:exported="false"
+            android:process=":gray"/>
+
+        <receiver
+            android:name="com.miracle.clock.service.WakeReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.wake.gray"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="tencent1106232404"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <!-- 微信分享回调 -->
+        <activity
+            android:name="com.miracle.clock.wxapi.WXEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.RingActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomTransparent">
+        </activity>
+        <activity
+            android:name="com.miracle.clock.ui.activity.DownloadActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name="com.miracle.clock.ui.activity.SuggestActivity">
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,2 @@
+include ':app', ':DatePicker2'
+project(':DatePicker2').projectDir = new File('DatePicker')
